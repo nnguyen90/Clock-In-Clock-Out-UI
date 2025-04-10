@@ -8,12 +8,12 @@ const MySchedule = () => {
   const [shifts, setShifts] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [error, setError] = useState("");
-
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     const fetchShifts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/shifts/userShifts", {
+        const res = await axios.get(`${baseURL}/api/shifts/userShifts`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setShifts(res.data);

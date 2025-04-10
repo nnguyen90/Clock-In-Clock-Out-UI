@@ -10,6 +10,7 @@ const TimeOff = () => {
   const [endDate, setEndDate] = useState("");
   const [reason, setReason] = useState("");
   const role = localStorage.getItem("role");
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     fetchRequests();
@@ -20,8 +21,8 @@ const TimeOff = () => {
       const token = localStorage.getItem("token");
       const endpoint =
         role === "admin" || role === "manager"
-          ? "http://localhost:5000/api/timeoff"
-          : "http://localhost:5000/api/timeoff/user";
+          ? `${baseURL}/api/timeoff`
+          : `${baseURL}/api/timeoff/user`;
 
       const { data } = await axios.get(endpoint, {
         headers: { Authorization: `Bearer ${token}` },
@@ -38,7 +39,7 @@ const TimeOff = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/timeoff",
+        `${baseURL}/api/timeoff`,
         { start_date: startDate, end_date: endDate, reason },
         {
           headers: {
@@ -62,7 +63,7 @@ const TimeOff = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:5000/api/timeoff/${id}`,
+        `${baseURL}/api/timeoff/${id}`,
         { status },
         {
           headers: {

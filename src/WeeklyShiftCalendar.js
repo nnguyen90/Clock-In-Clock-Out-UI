@@ -6,6 +6,7 @@ const WeeklyShiftCalendar = ({ userRole, refreshKey }) => {
   const [shifts, setShifts] = useState([]);
   const [currentWeekStart, setCurrentWeekStart] = useState(new Date());
   const [error, setError] = useState(null);
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     if (userRole === "manager" || userRole === "admin") {
@@ -17,7 +18,7 @@ const WeeklyShiftCalendar = ({ userRole, refreshKey }) => {
     try {
       const formattedDate = currentWeekStart.toISOString().split("T")[0];
       const response = await axios.get(
-        `http://localhost:5000/api/shifts/week/${formattedDate}`,
+        `${baseURL}/api/shifts/week/${formattedDate}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
 

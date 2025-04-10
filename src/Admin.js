@@ -30,6 +30,7 @@ const Admin = () => {
   // Modal state
   const [showModal, setShowModal] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const Admin = () => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/users", {
+        const response = await axios.get(`${baseURL}/api/users`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -60,7 +61,7 @@ const Admin = () => {
         const token = localStorage.getItem("token");
         console.log("Token being sent in request:", token);
    
-        const response = await axios.get("http://localhost:5000/api/shifts/employees", {
+        const response = await axios.get(`${baseURL}/api/shifts/employees`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -93,7 +94,7 @@ const Admin = () => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       try {
         const token = localStorage.getItem("token");
-        await axios.delete(`http://localhost:5000/api/users/${employeeId}`, {
+        await axios.delete(`${baseURL}/api/users/${employeeId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
   
@@ -109,7 +110,7 @@ const Admin = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/users/${editedEmployee.id || editedEmployee._id}`, editedEmployee, {
+      await axios.put(`${baseURL}/api/users/${editedEmployee.id || editedEmployee._id}`, editedEmployee, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -132,7 +133,7 @@ const Admin = () => {
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.get(
-        `http://localhost:5000/api/users/${employee._id}/availability`,
+        `${baseURL}/api/users/${employee._id}/availability`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -156,7 +157,7 @@ const Admin = () => {
         employee_id: assignedEmployee,
       };
 
-      const response = await axios.post("http://localhost:5000/api/shifts", shiftData, {
+      const response = await axios.post(`${baseURL}/api/shifts`, shiftData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

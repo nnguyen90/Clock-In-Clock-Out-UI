@@ -22,6 +22,7 @@ const Add = () => {
 
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   // Handle input change
   const handleChange = (e) => {
@@ -51,7 +52,7 @@ const Add = () => {
   
       console.log("Token being sent in request:", token);
   
-      await axios.post("http://localhost:5000/api/users", formData, {
+      await axios.post(`${baseURL}/api/users`, formData, {
         headers: {
           Authorization: `Bearer ${token}`, // Ensure token is included
           "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const SwapRequests = () => {
     const [selectedEmployee, setSelectedEmployee] = useState("");
     const [employeeShifts, setEmployeeShifts] = useState([]);
     const [selectedEmployeeShift, setSelectedEmployeeShift] = useState("");
-
+    const baseURL = process.env.REACT_APP_API_BASE_URL;
 
     useEffect(() => {
         fetchRequests();
@@ -26,7 +26,7 @@ const SwapRequests = () => {
     const fetchUserShifts = async () => {
         const token = localStorage.getItem("token");
         try {
-            const res = await axios.get("http://localhost:5000/api/shifts/userShifts", {
+            const res = await axios.get(`${baseURL}/api/shifts/userShifts`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserShifts(res.data);
@@ -38,7 +38,7 @@ const SwapRequests = () => {
     const fetchEmployees = async () => {
         const token = localStorage.getItem("token");
         try {
-            const res = await axios.get("http://localhost:5000/api/users", {
+            const res = await axios.get(`${baseURL}/api/users`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setEmployeeList(res.data);
@@ -52,8 +52,8 @@ const SwapRequests = () => {
             const token = localStorage.getItem("token");
             const endpoint =
                 role === "admin" || role === "manager"
-                    ? "http://localhost:5000/api/swapshift" // Fetch all requests for manager/admin
-                    : "http://localhost:5000/api/swapshift/user"; // Fetch only logged-in employee's requests
+                    ? `${baseURL}/api/swapshift` // Fetch all requests for manager/admin
+                    : `${baseURL}/api/swapshift/user`; // Fetch only logged-in employee's requests
 
             const { data } = await axios.get(endpoint, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -70,7 +70,7 @@ const SwapRequests = () => {
 
         const token = localStorage.getItem("token");
         try {
-            const res = await axios.get(`http://localhost:5000/api/shifts/user/${empId}`, {
+            const res = await axios.get(`${baseURL}/api/shifts/user/${empId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setEmployeeShifts(res.data);
@@ -94,7 +94,7 @@ const SwapRequests = () => {
         };
 
         try {
-            const response = await axios.post("http://localhost:5000/api/swapshift", payload, {
+            const response = await axios.post(`${baseURL}/api/swapshift`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
@@ -113,7 +113,7 @@ const SwapRequests = () => {
     const handleAction = async (id, status) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.put(`http://localhost:5000/api/swapshift/${id}/${status}`, {}, {
+            const response = await axios.put(`${baseURL}/api/swapshift/${id}/${status}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

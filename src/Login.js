@@ -8,14 +8,14 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-  
+    const baseURL = process.env.REACT_APP_API_BASE_URL;
     const handleLogin = async (e) => {
       e.preventDefault();
       try {
         console.log("Sending login request:", email, password);
         
         const response = await axios.post(
-          "http://localhost:5000/api/auth/login",
+          `${baseURL}/api/auth/login`,
           { email, password },
           { headers: { "Content-Type": "application/json" } }
         );

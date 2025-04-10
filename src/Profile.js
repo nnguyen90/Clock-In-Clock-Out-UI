@@ -10,11 +10,11 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/users/profile", {
+        const response = await axios.get(`${baseURL}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(response.data);
@@ -35,7 +35,7 @@ const Profile = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/users/${profile._id}`, profile, {
+      await axios.put(`${baseURL}/api/users/${profile._id}`, profile, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage("Profile updated successfully!");

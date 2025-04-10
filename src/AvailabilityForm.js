@@ -19,6 +19,7 @@ const AvailabilityForm = ({ userId: propUserId }) => {
   const userId = propUserId || loggedInUserId;
   const isViewingOwn = !propUserId || propUserId === loggedInUserId;
   const isEditable = !isViewingOwn && (role === "admin" || role === "manager");
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   const axiosConfig = {
     headers: {
@@ -30,7 +31,7 @@ const AvailabilityForm = ({ userId: propUserId }) => {
   const fetchAvailability = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/users/${userId}/availability`,
+        `${baseURL}/api/users/${userId}/availability`,
         axiosConfig
       );
       setAvailability(data);
@@ -61,7 +62,7 @@ const AvailabilityForm = ({ userId: propUserId }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/users/${userId}/availability`,
+        `${baseURL}/api/users/${userId}/availability`,
         payload,
         axiosConfig
       );
@@ -80,7 +81,7 @@ const AvailabilityForm = ({ userId: propUserId }) => {
   const handleDeleteAvailability = async (availabilityId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/users/${userId}/availability/${availabilityId}`,
+        `${baseURL}/api/users/${userId}/availability/${availabilityId}`,
         axiosConfig
       );
 
@@ -109,7 +110,7 @@ const AvailabilityForm = ({ userId: propUserId }) => {
       };
 
       const response = await axios.put(
-        `http://localhost:5000/api/users/${userId}/availability/${editItem._id}`,
+        `${baseURL}/api/users/${userId}/availability/${editItem._id}`,
         payload,
         axiosConfig
       );

@@ -9,12 +9,13 @@ const Employee = () => {
   const [statusMessage, setStatusMessage] = useState("");
   const [activeTab, setActiveTab] = useState("profile");
   const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     const fetchEmployeeData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/users/profile", {
+        const response = await axios.get(`${baseURL}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEmployee(response.data);
@@ -27,7 +28,7 @@ const Employee = () => {
     const fetchClockRecords = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/clock", {
+        const response = await axios.get(`${baseURL}/api/clock`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setClockRecords(response.data);
@@ -49,7 +50,7 @@ const Employee = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/clock/in",
+        `${baseURL}/api/clock/in`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -67,7 +68,7 @@ const Employee = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/clock/out",
+        `${baseURL}/api/clock/out`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
