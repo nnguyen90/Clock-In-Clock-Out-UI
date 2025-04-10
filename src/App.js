@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FaCommentDots, FaUserCircle , FaClipboardCheck, FaChartBar, FaIdCard, FaCalendarAlt } from "react-icons/fa";
 import { IoMdSwap } from "react-icons/io";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Admin from "./Admin";
 import Login from "./Login";
 import Employee from "./Employee";
