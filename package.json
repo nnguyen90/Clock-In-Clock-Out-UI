@@ -1,4 +1,5 @@
 {
+  "homepage": "http://nnguyen90.github.io/Clock-In-Clock-Out-UI",
   "name": "Clock-in-out",
   "version": "0.1.0",
   "private": true,
@@ -43,6 +44,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
+    "gh-pages": "^6.3.0",
     "prettier": "3.5.1"
   }
 }
