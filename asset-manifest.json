@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Clock-In-Clock-Out-UI/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css",
-    "main.js": "/Clock-In-Clock-Out-UI/Clock-In-Clock-Out-UI/static/js/main.50f2654d.js",
-    "index.html": "/Clock-In-Clock-Out-UI/Clock-In-Clock-Out-UI/index.html",
-    "main.aef297fd.css.map": "/Clock-In-Clock-Out-UI/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css.map",
-    "main.50f2654d.js.map": "/Clock-In-Clock-Out-UI/Clock-In-Clock-Out-UI/static/js/main.50f2654d.js.map"
+    "main.css": "//nnguyen90.github.io/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css",
+    "main.js": "//nnguyen90.github.io/Clock-In-Clock-Out-UI/static/js/main.50f2654d.js",
+    "index.html": "//nnguyen90.github.io/Clock-In-Clock-Out-UI/index.html",
+    "main.aef297fd.css.map": "//nnguyen90.github.io/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css.map",
+    "main.50f2654d.js.map": "//nnguyen90.github.io/Clock-In-Clock-Out-UI/static/js/main.50f2654d.js.map"
   },
   "entrypoints": [
     "static/css/main.aef297fd.css",
