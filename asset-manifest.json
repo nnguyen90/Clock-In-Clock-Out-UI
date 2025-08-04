@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css",
-    "main.js": "/Clock-In-Clock-Out-UI/static/js/main.66f90865.js",
+    "main.js": "/Clock-In-Clock-Out-UI/static/js/main.5fc6d0b7.js",
     "index.html": "/Clock-In-Clock-Out-UI/index.html",
     "main.aef297fd.css.map": "/Clock-In-Clock-Out-UI/static/css/main.aef297fd.css.map",
-    "main.66f90865.js.map": "/Clock-In-Clock-Out-UI/static/js/main.66f90865.js.map"
+    "main.5fc6d0b7.js.map": "/Clock-In-Clock-Out-UI/static/js/main.5fc6d0b7.js.map"
   },
   "entrypoints": [
     "static/css/main.aef297fd.css",
-    "static/js/main.66f90865.js"
+    "static/js/main.5fc6d0b7.js"
   ]
 }
