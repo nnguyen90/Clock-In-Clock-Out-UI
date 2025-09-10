@@ -51,12 +51,11 @@ const Login = () => {
                 <Form.Label>Email</Form.Label>
                 <OverlayTrigger
                   placement="right"
+                  trigger={['hover', 'focus']}
                   overlay={<Tooltip id="tooltip-email">For Testing: john.doe@example.com</Tooltip>}
                 >
-                  <span className="d-inline-block w-100">
-                    <i className="bi bi-envelope-fill me-2"></i>
-                  </span>
-                
+                   <div className="d-flex align-items-center">
+                  <i className="bi bi-envelope-fill me-2"></i>
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
@@ -64,6 +63,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+              </div>
                 </OverlayTrigger>
               </Form.Group>
 
@@ -72,12 +72,11 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <OverlayTrigger
                   placement="right"
+                  trigger={['hover', 'focus']}
                   overlay={<Tooltip id="tooltip-password">For Testing: admin</Tooltip>}
                 >
-                  <span className="d-inline-block w-100">
-                    <i className="bi bi-lock-fill me-2"></i>
-                  </span>
-                
+                   <div className="d-flex align-items-center">
+                <i className="bi bi-lock-fill me-2"></i>
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
@@ -85,6 +84,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                </div>
                 </OverlayTrigger>
               </Form.Group>
 
