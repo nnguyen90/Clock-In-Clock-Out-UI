@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import "./styles/App.css";
 
 const Login = () => {
@@ -49,6 +49,14 @@ const Login = () => {
               {/* Email Input */}
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
+                <OverlayTrigger
+                  placement="right"
+                  overlay={<Tooltip id="tooltip-email">For Testing: john.doe@example.com</Tooltip>}
+                >
+                  <span className="d-inline-block w-100">
+                    <i className="bi bi-envelope-fill me-2"></i>
+                  </span>
+                
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
@@ -56,11 +64,20 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                </OverlayTrigger>
               </Form.Group>
 
               {/* Password Input */}
               <Form.Group controlId="password" className="mt-3">
                 <Form.Label>Password</Form.Label>
+                <OverlayTrigger
+                  placement="right"
+                  overlay={<Tooltip id="tooltip-password">For Testing: admin</Tooltip>}
+                >
+                  <span className="d-inline-block w-100">
+                    <i className="bi bi-lock-fill me-2"></i>
+                  </span>
+                
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
@@ -68,6 +85,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                </OverlayTrigger>
               </Form.Group>
 
               {/* Submit Button */}
