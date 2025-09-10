@@ -60,9 +60,12 @@ const Login = () => {
           setGeneralError(errMsg);
         }
 
-        console.error("Full login error:", error);
-        console.error("Error response data:", error.response?.data || "No response received");
-        console.error("Error status:", error.response?.status || "No status received");
+        console.log("Raw error response:", error.response?.data);
+        console.log("Raw error status:", error.response?.status);
+
+        // console.error("Full login error:", error);
+        // console.error("Error response data:", error.response?.data || "No response received");
+        // console.error("Error status:", error.response?.status || "No status received");
       }
     };
 
