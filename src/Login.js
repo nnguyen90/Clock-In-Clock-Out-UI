@@ -49,7 +49,7 @@ const Login = () => {
         }
       } catch (error) {
 
-        const errMsg = error.response?.data?.message || "Server error, please try again";
+        const errMsg = error.response?.data?.message || "Login failed, please try again";
         const errField = error.response?.data?.field;
 
         if (errField === "email") {
